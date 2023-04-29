@@ -1,0 +1,43 @@
+---
+title: "Returns by Smolt Year, Osoyoos Lake"
+author: "Scott A. Akenhead, Howard Stiff, Braden Judson"
+format: pdf
+editor: visual
+---
+
+```{r setup}
+library(ggplot2); library (magrittr);
+    # /Users/Scott/Documents/Projects/OK SOX 2022/OK SOX Analysis/R functions 2022.R
+```
+
+```{r}
+# /Users/Scott/Documents/Projects/OK SOX 2022/OK SOX Analysis/R functions 2022.R
+source ('R functions 2022.R') 
+```
+
+## Read Returns By Smolt Year
+
+This is to examine smolt survival: past the Columbia River and one to three years at sea.
+
+### Source
+
+SIS - Data - OSOYOOS - 22.12.01.xlsx, sheet "Annual Returns by Smolt Year" was prepared by Howard Stiff.\
+https://docs.google.com/spreadsheets/d/1zCScpD93iBBEiJerhZeOSTcyzS98YVNb
+
+### Transform
+
+copied to temporary google sheets, https://docs.google.com/spreadsheets/d/1qpDRS47Io6pJb3V9XgfwlOG9G7RgGOvaCE6PRKs4oYw, sheet #2.
+
+```{r}
+#| echo: false
+cloud = 'https://docs.google.com/spreadsheets/d/1qpDRS47Io6pJb3V9XgfwlOG9G7RgGOvaCE6PRKs4oYw'
+# sheet 2 
+local = 'data/Adult Returns by Smolt Year.Rdata'
+returns_SY <- Read_local_or_cloud(local, cloud, sheet=2) 
+```
+
+### Plot Returns by Smolt Year
+
+```{r}
+dat <- data.frame(Brood = returns$Smolt_Year-2)
+```
